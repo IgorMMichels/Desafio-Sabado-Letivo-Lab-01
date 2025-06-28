@@ -1,0 +1,27 @@
+<meta charset="UTF-8" />
+<script>
+  /*
+    PROBLEMA 1: GERADOR DA SEQUÊNCIA DE FIBONACCI
+
+    Pergunte ao usuário quantos números deseja gerar e exiba a sequência de Fibonacci correspondente.
+    Para dinamizar um pouco mais, pergunte quais são os dois primeiros números da sequência e então complemente com os próximos números, de acordo com a quantidade informada pelo usuário.
+    */
+
+  //ENTRADA
+
+  const numeros = Number(prompt("Quantos números você deseja gerar."));
+  const primeirosValores = prompt(
+    "Informe os primeiros dois valores da sequencia"
+  );
+  let fibonacci = primeirosValores.split(" ");
+  fibonacci = fibonacci.map(Number);
+
+  //PROCESSAMENTO
+  for (let i = 0; i < numeros; i++) {
+    valor = fibonacci[i + 1] + fibonacci[i];
+    document.write(valor + "<br>");
+    fibonacci.push(valor);
+  }
+  document.write(fibonacci);
+  //SAÍDA
+</script>
