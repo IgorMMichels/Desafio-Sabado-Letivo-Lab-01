@@ -16,6 +16,28 @@
     */
    
     //ENTRADA
+
+    const qntProdutos = parseInt(prompt("Informe quantos produtos deseja adicionar ao carrinho"))
+
+    let nomeValor = ""
+    let precoUnitarioValor = ""
+    let quantidadeValor = ""
+
+    const carrinho = [
+    
+    ]
+
+    for (let i = 0; i < qntProdutos; i ++) {
+        nomeValor = prompt("Informe o nome do produto.");
+        precoUnitarioValor = Number(prompt("Informe o preço do produto.")).toFixed(2);
+        quantidadeValor = parseInt(prompt("Informe a quantidade de produtos do mesmo que deseja adicionar."));
+
+        carrinho.push({nome: nomeValor, precoUnitario: precoUnitarioValor, quantidade: quantidadeValor});
+    }
+    
+
+
+    /*
     const carrinho = [
     
         { nome: "Teclado Mecânico", precoUnitario: 250.00, quantidade: 1 },
@@ -24,9 +46,22 @@
         { nome: "Mousepad GG", precoUnitario: 80.00, quantidade: 2 }
     ];
 
-    //PROCESSAMENTO
+    */
 
+    //PROCESSAMENTO
+    let valorTotal = 0
+    let subTotal = 0
+    for (let i = 0; i < carrinho.length; i++) {
+        subTotal = carrinho[i].precoUnitario * carrinho[i].quantidade;
+        console.log(`Subtotal de ${carrinho[i].nome}: ${carrinho[i].precoUnitario}`);
+        if (subTotal > 200) {
+            subTotal -= subTotal * .10
+            console.log("Desconto de 10% no valor, por ser maior que R$200,00");
+        }
+        valorTotal += subTotal
+        subTotal = 0
+    }
 
     //SAÍDA
-
+    alert(`O valor final a ser pago é R$${valorTotal.toFixed(2)}`)
 </script>
